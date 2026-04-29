@@ -1,10 +1,10 @@
-# Habit Tracker PWA
+ Habit Tracker PWA
 
 A mobile-first Progressive Web App for tracking daily habits. Built with Next.js 14 (App Router), React, TypeScript, and Tailwind CSS.
 
 ---
 
-## Project Overview
+ Project Overview
 
 Habit Tracker allows users to:
 - Sign up and log in with email/password (local auth, no remote service)
@@ -16,9 +16,9 @@ Habit Tracker allows users to:
 
 ---
 
-## Setup Instructions
+ Setup Instructions
 
-**Prerequisites:** Node.js 18+, npm 9+
+Prerequisites: Node.js 18+, npm 9+
 
 ```bash
 # Clone the repo
@@ -34,7 +34,7 @@ npx playwright install --with-deps chromium
 
 ---
 
-## Run Instructions
+ Run Instructions
 
 ```bash
 # Development server
@@ -48,7 +48,7 @@ npm run start
 
 ---
 
-## Test Instructions
+ Test Instructions
 
 ```bash
 # Unit tests (with coverage report)
@@ -69,7 +69,7 @@ Coverage report is generated at `coverage/` after running `test:unit`.
 
 ---
 
-## Local Persistence Structure
+ Local Persistence Structure
 
 All persistence uses `localStorage`. Three keys are used:
 
@@ -79,17 +79,17 @@ All persistence uses `localStorage`. Three keys are used:
 | `habit-tracker-session` | `Session` JSON object or `"null"` | Active session |
 | `habit-tracker-habits` | `Habit[]` JSON array | All habits (filtered by `userId` on read) |
 
-**User shape:**
+User shape:
 ```ts
 { id: string; email: string; password: string; createdAt: string }
 ```
 
-**Session shape:**
+Session shape:
 ```ts
 { userId: string; email: string } | null
 ```
 
-**Habit shape:**
+Habit shape:
 ```ts
 {
   id: string; userId: string; name: string; description: string;
@@ -99,7 +99,7 @@ All persistence uses `localStorage`. Three keys are used:
 
 ---
 
-## PWA Support
+ PWA Support
 
 - `public/manifest.json` — includes name, short_name, start_url, display, theme/background colors, and 192/512 icons
 - `public/sw.js` — service worker using cache-first strategy for the app shell
@@ -110,17 +110,17 @@ The service worker caches the app shell on install and serves it offline after f
 
 ---
 
-## Trade-offs and Limitations
+ Trade-offs and Limitations
 
-- **Passwords are stored in plaintext** in localStorage. This is intentional per the TRD ("front-end-focused, no remote auth service"). Do not use real passwords.
-- **No encryption** of localStorage data — this is acceptable for a local-only demo app.
-- **Single device only** — data does not sync across devices.
-- **Daily frequency only** — the TRD specifies only `'daily'` is required for this stage.
-- **E2E offline test** uses `context.setOffline(true)` which simulates network loss. Service worker caching depends on the browser having loaded the app at least once.
+- Passwords are stored in plaintext in localStorage. This is intentional per the TRD ("front-end-focused, no remote auth service"). Do not use real passwords.
+- No encryption of localStorage data — this is acceptable for a local-only demo app.
+- Single device only — data does not sync across devices.
+- Daily frequency only — the TRD specifies only `'daily'` is required for this stage.
+- E2E offline test uses `context.setOffline(true)` which simulates network loss. Service worker caching depends on the browser having loaded the app at least once.
 
 ---
 
-## Test File Map
+ Test File Map
 
 | File | Describe block | What it verifies |
 |------|---------------|-----------------|
@@ -134,7 +134,7 @@ The service worker caches the app shell on install and serves it offline after f
 
 ---
 
-## Required File Structure
+ Required File Structure
 
 ```
 src/
