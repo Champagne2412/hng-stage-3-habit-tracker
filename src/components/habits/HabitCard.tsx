@@ -54,7 +54,7 @@ export default function HabitCard({
               className="flex items-center gap-1.5 mt-2"
               aria-label={`Current streak: ${streak} day${streak !== 1 ? "s" : ""}`}
             >
-              <span className="text-lg" aria-hidden="true">🔥</span>
+              {/* <span className="text-lg" aria-hidden="true"></span> */}
               <span className="text-sm font-semibold text-gray-700">
                 {streak} day{streak !== 1 ? "s" : ""}
               </span>
